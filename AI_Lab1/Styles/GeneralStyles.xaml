@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AI_Lab1.Styles">
+    <FontFamily x:Key="DefaultFontFamily">Arial
+    </FontFamily>
+
+    <Style TargetType="Border" x:Key="UserMessageBorder">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{StaticResource Succsess}"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="ProgrammMessageBorder">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{StaticResource Danger}"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="Padding" Value="15"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Background" Value="Wheat"></Setter>
+        <Setter Property="Cursor" Value="Hand"></Setter>
+    </Style>
+</ResourceDictionary>

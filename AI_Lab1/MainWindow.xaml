@@ -4,9 +4,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AI_Lab1"
+        xmlns:viewmodels="clr-namespace:AI_Lab1.ViewModels"
+        xmlns:models="clr-namespace:AI_Lab1.Models"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Грибы" 
+        Height="600" 
+        Width="400"
+        ResizeMode="CanResize"
+        Background="{StaticResource MainBackground}"
+        FontFamily="{StaticResource DefaultFontFamily}"
+        FontWeight="Bold"
+        >
+    <Window.DataContext>
+        <viewmodels:MainViewModel></viewmodels:MainViewModel>
+    </Window.DataContext>
+    <Border Padding="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Padding="10" Background="{StaticResource MessagesContainer}">
+                <StackPanel>
+                    <ItemsControl ItemsSource="{Binding Messages}">
+                        <ItemsControl.Resources>
+                            <DataTemplate DataType="{x:Type models:ProgrammMessage}">
+                                <Border Style="{StaticResource ProgrammMessageBorder}">
+                                    <TextBlock TextWrapping="Wrap" Foreground="White" Text="{Binding Text}"></TextBlock>
+                                </Border>
+                            </DataTemplate>
+                            <DataTemplate DataType="{x:Type models:UserMessage}">
+                                <Border Style="{StaticResource UserMessageBorder}">
+                                    <TextBlock TextWrapping="Wrap" Foreground="White" Text="{Binding Text}"></TextBlock>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.Resources>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1" Padding="10" Background="{StaticResource InterractionContainer}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Text="{Binding CurrentText}" VerticalScrollBarVisibility="Auto" Grid.Column="0" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+                    <Button Command="{Binding SendMsgCommand}" IsDefault="True" Grid.Column="1"   Content="Отправить"></Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>
